@@ -4,6 +4,7 @@ import scrapy
 import re
 from scrapy.selector import Selector
 import urllib.parse as Urllib
+from PsutCrawler.items import PsutcrawlerItem
 from scrapy.linkextractors import LinkExtractor
 
 class PsutcrawlSpider(scrapy.Spider):
@@ -35,8 +36,9 @@ class PsutcrawlSpider(scrapy.Spider):
                     else:
                         words_count[str(split)] = 1
 
-        print(words_count)
-        print ("about printing link")
+        item=PsutcrawlerItem()
+        item['values']=words_count
+        yield item
         for link in links:
             parsed_links.append(Urllib.urljoin(response.url,link))
 
