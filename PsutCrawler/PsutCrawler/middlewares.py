@@ -6,6 +6,7 @@
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+import redis
 
 
 class PsutcrawlerSpiderMiddleware(object):
@@ -53,4 +54,5 @@ class PsutcrawlerSpiderMiddleware(object):
             yield r
 
     def spider_opened(self, spider):
+
         spider.logger.info('Spider opened: %s' % spider.name)

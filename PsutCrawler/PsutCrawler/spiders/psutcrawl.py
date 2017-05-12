@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+import redis
 
 import re
 from scrapy.selector import Selector
