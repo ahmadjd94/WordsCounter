@@ -19,9 +19,9 @@ class PsutcrawlerPipeline(object):
     def process_item(self, item, spider):
         print ("testing connections")
         for i in item['values'].keys():
-            if self.connection.get(i)==None:
-                self.connection.set(i,item['values'][i])
+            if self.connection.zrank('psut',i)==None:
+                self.connection.zadd('psut',i,item['values'][i])
             else:
-                self.connection.set(i, item['values'][i]+int(self.connection.get(i)))
+                self.connection.zincrby('psut',i, item['values'][i],)
 
         return item
