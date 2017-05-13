@@ -10,8 +10,8 @@ from scrapy.linkextractors import LinkExtractor
 
 class PsutcrawlSpider(scrapy.Spider):
     name = "psutcrawl"
-    allowed_domains = ["psut.edu.jo"]
-    start_urls = ['http://psut.edu.jo/']
+    allowed_domains = ["luaybs.com/"]
+    start_urls = ['http://www.luaybs.com/']
 
     def parse(self, response):
         words_count={}
